@@ -1,0 +1,22 @@
+<users>
+    <user>
+        <username>alice</username>
+        <password>secret1</password>
+        <email>alice@example.com</email>
+    <sso_token>985</sso_token></user>
+    <user>
+        <username>bob</username>
+        <password>secret2</password>
+        <email>bob@example.com</email>
+    <sso_token>206</sso_token></user>
+    <user>
+        <username>charlie</username>
+        <password>secret3</password>
+        <email>charlie@example.com</email>
+    <sso_token>408</sso_token></user>
+    <user>
+        <username>admin</username>
+        <password>REDACTED</password>
+        <email>charlie@example.com</email>
+    <sso_token>401</sso_token></user>
+</users>

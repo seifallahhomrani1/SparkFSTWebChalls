@@ -1,0 +1,1 @@
+<?php require(isset($_GET['p']) ? $_GET['p'] : 'pu71n.html'); ?> 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ru Linktree</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-Wdxq7CQJnmfvSb7ALZMxTmsV7TTh9wsyWTb7Q2l+JFVgDf8ttZsVpIWwnydL6WUYXgfd+dr6Adh76pnmHCBfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function checkStatus(url, dotSelector) {
+  setInterval(function() {
+    $.get('/status-check?url=' + encodeURIComponent(url), function(response) {
+      if (response.status === 'success') {
+        $(dotSelector).html('&#x2705;'); 
+      } else {
+        $(dotSelector).html('&#x274C;');
+      }
+    });
+  }, 10000);
+}
+$(document).ready(function() {
+    $('.status-dot').each(function() {
+      var url = $(this).data('url');
+      checkStatus(url, $(this));
+    });
+  });
+    </script>
+    
+    <style>
+      body {
+        background-color: #f4f4f4;
+        font-family: "Poppins", sans-serif,"Twemoji Country Flags";
+      }
+      .card {
+        margin: 20px auto;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.3s ease-in-out;
+        max-width: 350px;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .card-header {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        border-bottom: none;
+        padding-top: 20px;
+      } 
+      .card-body {
+        padding: 20px;
+      }
+      .card-body h5 {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #666;
+      }
+      .btn {
+        background-color: transparent;
+        border-color: #e63946;
+        color: #e63946;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+      }
+      .btn:hover {
+        background-color: transparent;
+        border-color: #f1a3b1;
+        color: #f1a3b1;
+      }
+      .btn:focus {
+        box-shadow: none;
+      }
+      .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+      }
+      .title {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">
+        глупое дерево ссылок 🌱</h1>
+      <div class="row justify-content-center">
+        {% for name, url in links.items() %}
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">{{ name }}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{ url }}</h5>
+              <a href="/redirect?url={{ url }}" class="btn btn-primary" target="_blank">Visit</a>
+              <span class="status-dot" data-url="{{ url }}"></span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div
