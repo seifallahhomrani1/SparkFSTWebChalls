@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>don't apply u already refused lmfao</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #b3cde0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #011f4b;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #03396c;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #6497b1;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        button {
+            background-color: #005b96;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #03396c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Internship Application</h1>
+        
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="resume">Resume Upload:</label>
+            <input type="file" id="resume" name="resume">
+            
+            <label for="cover-letter">Cover Letter:</label>
+            <textarea id="cover-letter" name="cover-letter" rows="4" cols="50"></textarea>
+
+            <label for="internship-subject">Final Year Internship Subject:</label>
+            <select id="internship-subject" name="internship-subject">
+                <option value="web-development">Web Development</option>
+                <option value="data-analysis">Data Analysis</option>
+                <option value="marketing">Marketing</option>
+            </select>
+            
+            <button type="submit">Upload Resume</button>
+        </form>
+    </div>
+</body>
+</html>
